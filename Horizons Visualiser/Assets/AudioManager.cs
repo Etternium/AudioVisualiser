@@ -22,11 +22,6 @@ public class AudioManager : MonoBehaviour
         PlaySong();
     }
 
-    void Update()
-    {
-
-    }
-
     public void PlaySong()
     {
         if(source.isPlaying)
