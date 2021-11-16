@@ -26,6 +26,8 @@ public class TerrainGenerator : MonoBehaviour
         terrain.terrainData = GenerateTerrain(terrain.terrainData);
 
         offsetX += Time.deltaTime * speed;
+
+        SpeedChange();
     }
 
     TerrainData GenerateTerrain(TerrainData terrainData)
@@ -58,5 +60,20 @@ public class TerrainGenerator : MonoBehaviour
         float yCord = (float)y / height * scale + offsetY;
 
         return Mathf.PerlinNoise(xCord, yCord);
+    }
+
+    void SpeedChange()
+    {
+        if (Input.GetAxis("Mouse ScrollWheel") > 0)
+            speed += 0.75f;
+
+        if (Input.GetAxis("Mouse ScrollWheel") < 0)
+            speed -= 0.75f;
+
+        if (speed >= 10)
+            speed = 10;
+
+        if (speed <= 2)
+            speed = 2;
     }
 }
