@@ -12,7 +12,8 @@ public class AudioManager : MonoBehaviour
 
     public AudioClip[] songs;
 
-    AudioSource source;
+    [HideInInspector]
+    public static AudioSource source;
 
     int currentTrack, fullLength, playTime, seconds, minutes;
 

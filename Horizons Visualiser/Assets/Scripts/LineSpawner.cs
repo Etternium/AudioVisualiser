@@ -5,11 +5,13 @@ using UnityEngine.UI;
 
 public class LineSpawner : MonoBehaviour
 {
-    public int linesToSpawn;
+    public static int linesToSpawn = 60;
     public float radius;
 
     public GameObject line;
     public Transform circleCentre, linesContainer;
+
+    public static bool isStatic = false;
 
     void Start()
     {
@@ -23,12 +25,12 @@ public class LineSpawner : MonoBehaviour
             GameObject go = Instantiate(line, pos, rot);
             go.transform.SetParent(linesContainer.transform, true);
             go.transform.localScale = new Vector3(0.01f, 0.04f);
-
-            //color spectrum
-            float colorNumber = 1f / linesToSpawn;
-            Image lineColor = go.gameObject.GetComponent<Image>();
-
-            lineColor.color = Color.HSVToRGB(colorNumber * i, 1, 1);
+            go.GetComponent<ColourChanger>().i = i;
         }
+    }
+
+    public void ColorSwitch()
+    {
+        isStatic = !isStatic;
     }
 }
