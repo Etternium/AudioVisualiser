@@ -27,7 +27,7 @@ public class FrequencyLine : MonoBehaviour
 
         for (i = 0; i < linesToSpawn; i++)
         {
-            Vector3 pos = new Vector3(1700f / linesToSpawn * i, 89f, 0f);
+            Vector3 pos = new Vector3(1700f / linesToSpawn * i, 181.5f, 0f);
             GameObject go = Instantiate(line, pos, Quaternion.identity);
 
             go.transform.SetParent(lineContainer.transform, true);

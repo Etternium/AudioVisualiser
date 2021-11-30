@@ -14,10 +14,16 @@ public class TerrainGenerator : MonoBehaviour
     [Space]
     public float speed = 2f;
 
+    public ParticleSystem warpDrive;
+    ParticleSystemRenderer systemRenderer;
+    float duration, rateOverTime, startSpeed, lengthScale;
+
     void Start()
     {
         offsetX = Random.Range(0f, 9999f);
         offsetY = Random.Range(0f, 9999f);
+
+        systemRenderer = warpDrive.GetComponent<ParticleSystemRenderer>();
     }
 
     void Update()
@@ -28,6 +34,7 @@ public class TerrainGenerator : MonoBehaviour
         offsetX += Time.deltaTime * speed;
 
         SpeedChange();
+        WarpDriveValues();
     }
 
     TerrainData GenerateTerrain(TerrainData terrainData)
@@ -64,16 +71,63 @@ public class TerrainGenerator : MonoBehaviour
 
     void SpeedChange()
     {
+        if (speed > 2)
+            warpDrive.Play();
+
         if (Input.GetAxis("Mouse ScrollWheel") > 0)
+        {
             speed += 0.75f;
+            IncrementWarpDriveValues(15f, 7.5f, 8.5f, 1f);
+        }
 
         if (Input.GetAxis("Mouse ScrollWheel") < 0)
+        {
             speed -= 0.75f;
+            IncrementWarpDriveValues(15f, 7.5f, 8.5f, -1f);
+        }
 
         if (speed >= 10)
+        {
             speed = 10;
+            SetWarpDriveValues(0.5f, 200f, 100f, 100f);
+        }
 
         if (speed <= 2)
+        {
             speed = 2;
+            SetWarpDriveValues(5f, 50f, 25f, 15f);
+
+            warpDrive.Stop();
+        }
+
+        if (speed != 10)
+            duration = 5f;
+    }
+
+    void WarpDriveValues()
+    {
+        var main = warpDrive.main;
+        var em = warpDrive.emission;
+
+
+        main.duration = duration;
+        em.rateOverTime = rateOverTime;
+        main.startSpeed = startSpeed;
+        systemRenderer.lengthScale = lengthScale;
+    }
+
+    void SetWarpDriveValues(float D, float RoT, float sS, float lS)
+    {
+        duration = D;
+        rateOverTime = RoT;
+        startSpeed = sS;
+        lengthScale = lS;
+    }
+
+    void IncrementWarpDriveValues(float RoT, float sS, float lS, float factor)
+    {
+        rateOverTime += RoT * factor;
+        startSpeed += sS * factor;
+        lengthScale += lS * factor;
     }
 }
