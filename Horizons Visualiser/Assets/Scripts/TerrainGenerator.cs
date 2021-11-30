@@ -16,7 +16,7 @@ public class TerrainGenerator : MonoBehaviour
 
     public ParticleSystem warpDrive;
     ParticleSystemRenderer systemRenderer;
-    float duration, rateOverTime, startSpeed, lengthScale;
+    float duration, rateOverTime, startSpeed, lengthScale, power;
 
     void Start()
     {
@@ -24,6 +24,7 @@ public class TerrainGenerator : MonoBehaviour
         offsetY = Random.Range(0f, 9999f);
 
         systemRenderer = warpDrive.GetComponent<ParticleSystemRenderer>();
+        power = 0f;
     }
 
     void Update()
@@ -77,25 +78,29 @@ public class TerrainGenerator : MonoBehaviour
         if (Input.GetAxis("Mouse ScrollWheel") > 0)
         {
             speed += 0.75f;
-            IncrementWarpDriveValues(15f, 7.5f, 8.5f, 1f);
+            power++;
+            IncrementWarpDriveValues(7.5f, 8.5f, 1f);
         }
 
         if (Input.GetAxis("Mouse ScrollWheel") < 0)
         {
             speed -= 0.75f;
-            IncrementWarpDriveValues(15f, 7.5f, 8.5f, -1f);
+            power--;
+            IncrementWarpDriveValues(7.5f, 8.5f, -1f);
         }
 
         if (speed >= 10)
         {
             speed = 10;
-            SetWarpDriveValues(0.5f, 200f, 100f, 100f);
+            power = 11f;
+            SetWarpDriveValues(0.5f, 500f, 100f, 100f);
         }
 
         if (speed <= 2)
         {
             speed = 2;
-            SetWarpDriveValues(5f, 50f, 25f, 15f);
+            power = 0f;
+            SetWarpDriveValues(5f, 35f, 25f, 15f);
 
             warpDrive.Stop();
         }
@@ -124,9 +129,9 @@ public class TerrainGenerator : MonoBehaviour
         lengthScale = lS;
     }
 
-    void IncrementWarpDriveValues(float RoT, float sS, float lS, float factor)
+    void IncrementWarpDriveValues(float sS, float lS, float factor)
     {
-        rateOverTime += RoT * factor;
+        rateOverTime = Mathf.Pow(1.75f, power) + 50f;
         startSpeed += sS * factor;
         lengthScale += lS * factor;
     }
