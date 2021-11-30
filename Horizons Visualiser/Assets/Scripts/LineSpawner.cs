@@ -23,9 +23,11 @@ public class LineSpawner : MonoBehaviour
             Vector3 pos = circleCentre.position + (dir * radius);
 
             GameObject go = Instantiate(line, pos, rot);
+            ColourChanger colourChanger = go.AddComponent<ColourChanger>();
+
             go.transform.SetParent(linesContainer.transform, true);
             go.transform.localScale = new Vector3(0.01f, 0.04f);
-            go.GetComponent<ColourChanger>().i = i;
+            colourChanger.i = i;
         }
     }
 
