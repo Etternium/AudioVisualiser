@@ -11,15 +11,15 @@ public class CameraRotation : MonoBehaviour
 
     void Update()
     {
-        float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
-        float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
+        float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;    //get mouseX input
+        float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;    //get mouseY input
 
-        xRotation -= mouseY;
-        yRotation += mouseX;
+        xRotation -= mouseY;                                                            //xRotation changes from mouseX input
+        yRotation += mouseX;                                                            //yRotation changes from mouseY input
 
-        xRotation = Mathf.Clamp(xRotation, -rotationOffset, rotationOffset);
-        yRotation = Mathf.Clamp(yRotation, -rotationOffset, rotationOffset);
+        xRotation = Mathf.Clamp(xRotation, -rotationOffset, rotationOffset);            //xRotation can be changed between positive and negative rotationOffset
+        yRotation = Mathf.Clamp(yRotation, -rotationOffset, rotationOffset);            //yRotation can be changed between positive and negative rotationOffset
 
-        transform.localRotation = Quaternion.Euler(xRotation, yRotation, 0f);
+        transform.localRotation = Quaternion.Euler(xRotation, yRotation, 0f);           //change camera rotation using the mouse
     }
 }

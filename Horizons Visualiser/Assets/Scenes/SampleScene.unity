@@ -1016,7 +1016,8 @@ Transform:
   m_LocalRotation: {x: -0.19936797, y: 0, z: 0, w: 0.97992474}
   m_LocalPosition: {x: -382, y: -6, z: 514}
   m_LocalScale: {x: 500, y: 500, z: 500}
-  m_Children: []
+  m_Children:
+  - {fileID: 644119508}
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: -23, y: 0, z: 0}
@@ -1213,7 +1214,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 334984658}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2000243148}
+        m_TargetAssemblyTypeName: AudioManager, Assembly-CSharp
+        m_MethodName: PlayRandom
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &334984658
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6470,7 +6483,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6f8169c853e8e047967880756d31f83, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  depth: 20
+  depth: 18
   width: 256
   height: 256
   scale: 20
@@ -6537,6 +6550,49 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &644119507
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 644119508}
+  - component: {fileID: 644119509}
+  m_Layer: 0
+  m_Name: Halo
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &644119508
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 644119507}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.05, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 325125473}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!122 &644119509
+Halo:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 644119507}
+  m_Enabled: 1
+  m_Color:
+    serializedVersion: 2
+    rgba: 4294943113
+  m_Size: 375
 --- !u!1 &657335823
 GameObject:
   m_ObjectHideFlags: 0
@@ -10271,7 +10327,6 @@ GameObject:
   - component: {fileID: 2000243148}
   - component: {fileID: 2000243147}
   - component: {fileID: 2000243152}
-  - component: {fileID: 2000243151}
   m_Layer: 0
   m_Name: AudioManager
   m_TagString: Untagged
@@ -10420,22 +10475,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2000243151
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2000243146}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 42afdb97b55e7ff45ac4cc0d5e395e34, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bias: 0
-  timeStep: 0
-  timeToBeat: 0
-  restSmoothTime: 0
 --- !u!114 &2000243152
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10563,7 +10602,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &2121168477
 MonoBehaviour:
   m_ObjectHideFlags: 0

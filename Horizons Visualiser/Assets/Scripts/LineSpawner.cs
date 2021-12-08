@@ -13,26 +13,28 @@ public class LineSpawner : MonoBehaviour
 
     public static bool isStatic = false;
 
+    //---------------***** GET CANVAS/CAMERA WIDTH ---------------*****
+
     void Start()
     {
         for (int i = 0; i < linesToSpawn; i++)
         {
-            float theta = 360 / linesToSpawn;
-            Quaternion rot = Quaternion.AngleAxis(theta * i, Vector3.forward);
-            Vector3 dir = rot * Vector3.up;
-            Vector3 pos = circleCentre.position + (dir * radius);
+            float theta = 360 / linesToSpawn;                                       //set angle theta
+            Quaternion rot = Quaternion.AngleAxis(theta * i, Vector3.forward);      //rotate theta around the z axis
+            Vector3 dir = rot * Vector3.up;                                         //orient the line to the camera
+            Vector3 pos = circleCentre.position + (dir * radius);                   //set position of the line along the circle radius
 
-            GameObject go = Instantiate(line, pos, rot);
-            ColourChanger colourChanger = go.AddComponent<ColourChanger>();
+            GameObject go = Instantiate(line, pos, rot);                            //create an instance of a line at pos position at rot rotation
+            ColourChanger colourChanger = go.AddComponent<ColourChanger>();         //add ColourChanger component to the line
 
-            go.transform.SetParent(linesContainer.transform, true);
-            go.transform.localScale = new Vector3(0.01f, 0.04f);
-            colourChanger.i = i;
+            go.transform.SetParent(linesContainer.transform, true);                 //child the line to the linesContainer game object
+            go.transform.localScale = new Vector3(0.01f, 0.04f);                    //set the local scale of the line
+            colourChanger.i = i;                                                    //this i = i in the ColourChanger
         }
     }
 
     public void ColorSwitch()
     {
-        isStatic = !isStatic;
+        isStatic = !isStatic;                                                       //control whether the line continously changes colour or not
     }
 }

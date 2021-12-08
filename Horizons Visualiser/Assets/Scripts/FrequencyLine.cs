@@ -8,7 +8,6 @@ public class FrequencyLine : MonoBehaviour
     int i;
     float[] spectrum;
     GameObject[] arrayOfLines;
-    int visualiserSamples = 512;
 
     public int linesToSpawn = 60;
     public float minHeight = 10f, maxHeight = 500f;
@@ -20,32 +19,37 @@ public class FrequencyLine : MonoBehaviour
     public float hueValue;
     public bool colorGradient = true;
 
+    //---------------***** GET CANVAS/CAMERA WIDTH ---------------*****
+
     void Start()
     {
-        spectrum = new float[512];
-        arrayOfLines = new GameObject[linesToSpawn];
+        spectrum = new float[512];                                                              //initialise spectrum array
+        arrayOfLines = new GameObject[linesToSpawn];                                            //initialise array with linesToSpawn elements
 
         for (i = 0; i < linesToSpawn; i++)
         {
-            Vector3 pos = new Vector3(1700f / linesToSpawn * i, 181.5f, 0f);
-            GameObject go = Instantiate(line, pos, Quaternion.identity);
+            Vector3 pos = new Vector3(1700f / linesToSpawn * i, 181.5f, 0f);                    //set vector3 pos
+            GameObject go = Instantiate(line, pos, Quaternion.identity);                        //instantiate line game object at position pos with no changes to rotation
 
-            go.transform.SetParent(lineContainer.transform, true);
-            arrayOfLines[i] = go;
+            go.transform.SetParent(lineContainer.transform, true);                              //child the go to lineContainer
+            arrayOfLines[i] = go;                                                               //populate the array with go at position i
         }
     }
 
     void Update()
     {
-        spectrum = AudioListener.GetSpectrumData(visualiserSamples, 0, FFTWindow.Rectangular);
+        AudioListener.GetSpectrumData(spectrum, 0, FFTWindow.Rectangular);                      //fill spectrum array
 
         for (i = 0; i < arrayOfLines.Length; i++)
         {
-            Vector2 newSize = GetComponent<RectTransform>().rect.size;
-            newSize.y = Mathf.Clamp(Mathf.Lerp(newSize.y, minHeight + spectrum[i] * (maxHeight - minHeight) * 30f * (2f * i / linesToSpawn + 1f), 0.25f), minHeight, maxHeight);
+            Vector2 newSize = GetComponent<RectTransform>().rect.size;                          //fetch size in rectTransform and assign it to newSize
+            float arbitrary = (maxHeight - minHeight) * 30f * (2f * i / linesToSpawn + 1f);     //arbitrary value for better visualisation
+            float lerp = Mathf.Lerp(newSize.y, minHeight + spectrum[i] * arbitrary, 0.25f);     //linearly interpolate between newSize.y and height that changes from spectrum[i] at the speed of 0.25
 
-            arrayOfLines[i].GetComponent<RectTransform>().sizeDelta = newSize;
-            arrayOfLines[i].GetComponent<Image>().color = Color.HSVToRGB(hueValue, 1f, 1f);
+            newSize.y = Mathf.Clamp(lerp, minHeight, maxHeight);                                //y value of newSize can be lerped between minHeight and maxHeight values
+
+            arrayOfLines[i].GetComponent<RectTransform>().sizeDelta = newSize;                  //update the rectTransform with respect to newSize
+            arrayOfLines[i].GetComponent<Image>().color = Color.HSVToRGB(hueValue, 1f, 1f);     //fetch colour of ecah line in the array and assign it a hueValue
         }
 
         if(colorGradient)
@@ -54,14 +58,14 @@ public class FrequencyLine : MonoBehaviour
 
     void ColorGradient()
     {
-        hueValue += 0.05f / 20f;
+        hueValue += 0.05f / 20f;                                                                //continously increment hueValue
 
         if (hueValue >= 1f)
-            hueValue = 0f;
+            hueValue = 0f;                                                                      //if hueValue is greater than 1, reset it to 0
     }
 
     public void ColorSwitch()
     {
-        colorGradient = !colorGradient;
+        colorGradient = !colorGradient;                                                         //control whether the lines continously change colour or not
     }
 }
