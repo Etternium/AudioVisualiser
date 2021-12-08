@@ -93,7 +93,7 @@ public class AudioManager : MonoBehaviour
     public void PlayRandom()
     {
         source.Stop();                                  //stop playing the current song
-        int rnd = Random.Range(0, songs.Length + 1);    //get a random integer value
+        int rnd = Random.Range(0, songs.Length);        //get a random integer value
         currentTrack = rnd;                             //song to be played in the array equals to the random integer value
 
         source.clip = songs[currentTrack];              //random song to be played

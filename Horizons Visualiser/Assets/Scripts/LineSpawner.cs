@@ -6,14 +6,11 @@ using UnityEngine.UI;
 public class LineSpawner : MonoBehaviour
 {
     public static int linesToSpawn = 60;
-    public float radius;
 
     public GameObject line;
     public Transform circleCentre, linesContainer;
 
     public static bool isStatic = false;
-
-    //---------------***** GET CANVAS/CAMERA WIDTH ---------------*****
 
     void Start()
     {
@@ -22,7 +19,7 @@ public class LineSpawner : MonoBehaviour
             float theta = 360 / linesToSpawn;                                       //set angle theta
             Quaternion rot = Quaternion.AngleAxis(theta * i, Vector3.forward);      //rotate theta around the z axis
             Vector3 dir = rot * Vector3.up;                                         //orient the line to the camera
-            Vector3 pos = circleCentre.position + (dir * radius);                   //set position of the line along the circle radius
+            Vector3 pos = circleCentre.position + (dir * Screen.height / 4.5f);     //set position of the line along the circle radius
 
             GameObject go = Instantiate(line, pos, rot);                            //create an instance of a line at pos position at rot rotation
             ColourChanger colourChanger = go.AddComponent<ColourChanger>();         //add ColourChanger component to the line

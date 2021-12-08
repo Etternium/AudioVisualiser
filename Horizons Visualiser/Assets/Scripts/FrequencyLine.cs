@@ -19,8 +19,6 @@ public class FrequencyLine : MonoBehaviour
     public float hueValue;
     public bool colorGradient = true;
 
-    //---------------***** GET CANVAS/CAMERA WIDTH ---------------*****
-
     void Start()
     {
         spectrum = new float[512];                                                              //initialise spectrum array
@@ -28,7 +26,9 @@ public class FrequencyLine : MonoBehaviour
 
         for (i = 0; i < linesToSpawn; i++)
         {
-            Vector3 pos = new Vector3(1700f / linesToSpawn * i, 181.5f, 0f);                    //set vector3 pos
+            float x = ((float)Screen.width / linesToSpawn * i) + 6f;
+            float y = Screen.height / 5f;
+            Vector3 pos = new Vector3(x, y, 0f);                                                //set vector3 pos
             GameObject go = Instantiate(line, pos, Quaternion.identity);                        //instantiate line game object at position pos with no changes to rotation
 
             go.transform.SetParent(lineContainer.transform, true);                              //child the go to lineContainer
