@@ -25,6 +25,7 @@ Visual settings include:
 
 
 ![](Audio%20Visualiser%20vision.png)
+![](Example%20Screenshot.png)
 
 # Instructions for use
 
