@@ -29,7 +29,9 @@ Visual settings include:
 # Instructions for use
 
 Mouse to rotate the camera
+
 Scroll wheel to change speed and activate warp drive
+
 All audio-related settings can be found in the settings menu on the right hand side
 
 # How it works
