@@ -1,4 +1,4 @@
-# Project Title
+# Starset Horizons - Audio-responsive visualiser
 
 Name: Luka Mumelas
 
@@ -8,26 +8,31 @@ Class Group: Game Design
 
 # Description of the project
 
-For this assignment I aim to create an interactive audio visualiser in which the viewer moves on a planet surface (infinitely generated) with the view of a planet in the distance and vastness of space above.
+For this assignment I created an interactive audio visualiser in which the viewer moves on a planet surface (infinitely generated) with the view of a planet in the distance and vastness of space above.
 
 Interactive elements include:
 
 - Moveable camera – the viewer can move their mouse to rotate the camera above, below, left and right
 - Visual settings menu – on the right hand side of the screen the viewer can open a menu in order to turn on and off different visual settings as they see fit
 - Song selector – in that same menu the viewer can manually select what song they would like to listen to, as well as choose a random song
+- Speed of movement - the viewer can use scroll wheel to increase the speed at which they move across the planet surface with a little visual surprise
 
 
 Visual settings include:
-- Frequency-responding line that changes colours
-- Loudness-responding circle that changes colours
-- Stars that move towards the camera to give the impression of moving at high speed
+- Audio-responding line that changes colours
+- Bass-responding circle that changes colours
+- Warp Drive
 
 
 ![](Audio%20Visualiser%20vision.png)
 
 # Instructions for use
 
+
+
 # How it works
+
+
 
 # List of classes/assets with sources
 
@@ -75,3 +80,5 @@ Visual settings include:
 [UI font and star](https://starsetonline.com/toolkit/)
 
 # What I am most proud of in the assignment
+
+I am very proud of how the the audio responisve elements and warp drive add so much more jazz and immersion to the project. Changing colours are beautiful and it was quite tough to figure out how to implement the feature for the bass circle
