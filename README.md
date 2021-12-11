@@ -98,9 +98,9 @@ Interactive elements include:
   
 Visual settings include:
 
-	Frequency-responding line that changes colours
-	Loudness-responding circle that changes colours
-	Stars that move towards the camera to give the impression of moving at high speed
-  
+  - Frequency-responding line that changes colours
+  - Loudness-responding circle that changes colours
+  - Stars that move towards the camera to give the impression of moving at high speed
+
 
 ![](Audio%20Visualiser%20vision.png)
