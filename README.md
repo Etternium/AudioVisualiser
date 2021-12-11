@@ -54,4 +54,18 @@ Visual settings include:
 
 # References
 
+[![YouTube](https://www.youtube.com/watch?v=vFvwyu_ZKfU&ab_channel=Brackeys)
+[![YouTube]()
+[![YouTube]()
+[![YouTube]()
+[![YouTube]()
+[![YouTube]()
+[![YouTube]()
+[![YouTube]()
+[![YouTube]()
+[![YouTube]()
+[![YouTube]()
+[![YouTube]()
+[![YouTube]()
+
 # What I am most proud of in the assignment
