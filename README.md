@@ -33,7 +33,22 @@ Visual settings include:
 
 | Class/asset | Soruce |
 |-----------|-----------|
-| Insert class.cs/asset here | Self written or modified from source or taken from source? |
+| AudioManager.cs | Modified from source |
+| AudioSpectrum.cs | Taken from source |
+| AudioSyncer.cs | Taken from source |
+| AudioSyncScale.cs | Taken from source |
+| CameraRotation.cs | Modified from source |
+| ColourChanger.cs | Self Written |
+| FrequencyLine.cs | Modified from source |
+| LineSpawner.cs | Self written |
+| PlanetRotation.cs | Self written |
+| TerrainGenerator.cs | Taken from source |
+|-----------|-----------|
+| Warp Drive | Modified form source|
+| Skybox | Taken from source |
+| Moon texture | Taken from source|
+| Planet texture | Taken from source|
+| UI font and star | Taken from source |
 
 # References
 
