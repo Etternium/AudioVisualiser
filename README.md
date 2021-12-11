@@ -54,18 +54,8 @@ Visual settings include:
 
 # References
 
-[![YouTube]](https://www.youtube.com/watch?v=vFvwyu_ZKfU&ab_channel=Brackeys)
-[![YouTube]()
-[![YouTube]()
-[![YouTube]()
-[![YouTube]()
-[![YouTube]()
-[![YouTube]()
-[![YouTube]()
-[![YouTube]()
-[![YouTube]()
-[![YouTube]()
-[![YouTube]()
-[![YouTube]()
+[TerrainGenerator](https://www.youtube.com/watch?v=vFvwyu_ZKfU&ab_channel=Brackeys)
+[TerrainGenerator]()
+
 
 # What I am most proud of in the assignment
