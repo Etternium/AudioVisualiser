@@ -64,5 +64,14 @@ Visual settings include:
 
 [TerrainGenerator.cs](https://www.youtube.com/watch?v=vFvwyu_ZKfU&ab_channel=Brackeys)
 
+[Warp Drive](https://www.youtube.com/watch?v=4hlCOUoc6aQ&ab_channel=Mirza)
+
+[Skybox](https://freepngimg.com/png/82984-skybox-blue-atmosphere-sky-space-hd-image-free-png)
+
+[Moon texture](https://imgur.com/a/aw3nD)
+
+[Planet texture](https://assetstore.unity.com/packages/tools/planet-texture-generator-51995)
+
+[UI font and star](https://starsetonline.com/toolkit/)
 
 # What I am most proud of in the assignment
