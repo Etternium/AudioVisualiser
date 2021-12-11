@@ -54,8 +54,10 @@ Visual settings include:
 
 # References
 
-[TerrainGenerator](https://www.youtube.com/watch?v=vFvwyu_ZKfU&ab_channel=Brackeys)
-[TerrainGenerator]()
-
+[AudioManager.cs](https://www.youtube.com/watch?v=zpiwhC8zp4A&ab_channel=xOctoManx)
+[AudioSpectrum.cs & AudioSyncer.cs & AudioSyncScale.cs](https://www.youtube.com/watch?v=PzVbaaxgPco&ab_channel=RenaissanceCoders)
+[CameraRotation.cs](https://www.youtube.com/watch?v=_QajrabyTJc&ab_channel=Brackeys)
+[FrequencyLine.cs](https://www.youtube.com/watch?v=PgXZsoslGsg&t=1s&ab_channel=MediaMax)
+[TerrainGenerator.cs](https://www.youtube.com/watch?v=vFvwyu_ZKfU&ab_channel=Brackeys)
 
 # What I am most proud of in the assignment
