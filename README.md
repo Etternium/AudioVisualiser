@@ -31,7 +31,7 @@ Visual settings include:
 
 # List of classes/assets with sources
 
-| Class/asset | Soruce |
+| Class | Source |
 |-----------|-----------|
 | AudioManager.cs | Modified from source |
 | AudioSpectrum.cs | Taken from source |
@@ -43,6 +43,8 @@ Visual settings include:
 | LineSpawner.cs | Self written |
 | PlanetRotation.cs | Self written |
 | TerrainGenerator.cs | Taken from source |
+
+| Asset | Source |
 |-----------|-----------|
 | Warp Drive | Modified form source|
 | Skybox | Taken from source |
