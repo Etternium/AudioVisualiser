@@ -54,7 +54,7 @@ Visual settings include:
 
 # References
 
-[![YouTube](https://www.youtube.com/watch?v=vFvwyu_ZKfU&ab_channel=Brackeys)
+[![YouTube]](https://www.youtube.com/watch?v=vFvwyu_ZKfU&ab_channel=Brackeys)
 [![YouTube]()
 [![YouTube]()
 [![YouTube]()
