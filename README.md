@@ -24,12 +24,13 @@ Visual settings include:
 - Warp Drive
 
 
-![](Audio%20Visualiser%20vision.png)
 ![](Example%20Screenshot.png)
 
 # Instructions for use
 
-
+Mouse to rotate the camera
+Scroll wheel to change speed and activate warp drive
+All audio-related settings can be found in the settings menu on the right hand side
 
 # How it works
 
@@ -39,24 +40,24 @@ Visual settings include:
 
 | Class | Source |
 |-----------|-----------|
-| AudioManager.cs | Modified from source |
-| AudioSpectrum.cs | Taken from source |
-| AudioSyncer.cs | Taken from source |
-| AudioSyncScale.cs | Taken from source |
-| CameraRotation.cs | Modified from source |
+| AudioManager.cs | Modified from [source](https://www.youtube.com/watch?v=zpiwhC8zp4A&ab_channel=xOctoManx) |
+| AudioSpectrum.cs | Taken from [source](https://www.youtube.com/watch?v=PzVbaaxgPco&ab_channel=RenaissanceCoders) |
+| AudioSyncer.cs | Taken from [source](https://www.youtube.com/watch?v=PzVbaaxgPco&ab_channel=RenaissanceCoders) |
+| AudioSyncScale.cs | Taken from [source](https://www.youtube.com/watch?v=PzVbaaxgPco&ab_channel=RenaissanceCoders) |
+| CameraRotation.cs | Modified from [source](https://www.youtube.com/watch?v=_QajrabyTJc&ab_channel=Brackeys) |
 | ColourChanger.cs | Self Written |
-| FrequencyLine.cs | Modified from source |
+| FrequencyLine.cs | Modified from [source](https://www.youtube.com/watch?v=PgXZsoslGsg&t=1s&ab_channel=MediaMax) |
 | LineSpawner.cs | Self written |
 | PlanetRotation.cs | Self written |
-| TerrainGenerator.cs | Taken from source |
+| TerrainGenerator.cs | Taken from [source](https://www.youtube.com/watch?v=vFvwyu_ZKfU&ab_channel=Brackeys) |
 
 | Asset | Source |
 |-----------|-----------|
-| Warp Drive | Modified form source|
-| Skybox | Taken from source |
-| Moon texture | Taken from source|
-| Planet texture | Taken from source|
-| UI font and star | Taken from source |
+| Warp Drive | Modified form [source](https://www.youtube.com/watch?v=4hlCOUoc6aQ&ab_channel=Mirza) |
+| Skybox | Taken from [source](https://freepngimg.com/png/82984-skybox-blue-atmosphere-sky-space-hd-image-free-png) |
+| Moon texture | Taken from [source](https://imgur.com/a/aw3nD) |
+| Planet texture | Taken from [source](https://assetstore.unity.com/packages/tools/planet-texture-generator-51995) |
+| UI font and star | Taken from [source](https://starsetonline.com/toolkit/) |
 
 # References
 
