@@ -92,72 +92,72 @@ Visual settings include:
 
     - Beat detection
 
-```
-    public Vector3 beatScale, restScale;
+    ```
+        public Vector3 beatScale, restScale;
 
-    public override void OnBeat()
-    {
-        base.OnBeat();                                                  //
-
-        StopCoroutine("MoveToScale");                                   //stop current MoveToScale coroutine
-        StartCoroutine("MoveToScale", beatScale);                       //start MoveToScale coroutine
-    }
-
-    public override void OnUpdate()
-    {
-        base.OnUpdate();                                                //fucntion called rom AudioSyncer
-
-        if (isBeat)
-            return;                                                     //if a beat has occurred return
-
-        transform.localScale = Vector3.Lerp(transform.localScale, restScale, restSmoothTime * Time.deltaTime);
-            //lineraly inerpolate the local scale of the game object from its scale to restScale at restSmoothTime speed
-    }
-
-    IEnumerator MoveToScale(Vector3 target)
-    {
-        Vector3 curr = transform.localScale;                            //current scale
-        Vector3 initial = curr;                                         //set initial to curr
-        float timer = 0;
-
-        while(curr != target)
+        public override void OnBeat()
         {
-            curr = Vector3.Lerp(initial, target, timer / timeToBeat);   //linearly interpolate from intial scale to target scale (beatScale) at (timer / timeToBeat) speed
-            timer += Time.deltaTime;                                    //increment timer
+            base.OnBeat();                                                  //
 
-            transform.localScale = curr;                                //set scale to curr
-
-            yield return null;
+            StopCoroutine("MoveToScale");                                   //stop current MoveToScale coroutine
+            StartCoroutine("MoveToScale", beatScale);                       //start MoveToScale coroutine
         }
 
-        isBeat = false;                                                 //beat is not occurring, lerp to restScale
-    }
-```
-
-Colour changer
-
-```
-    private void Start()
-    {
-        hueValue = 1f / LineSpawner.linesToSpawn * i;
-        image = GetComponent<Image>();
-    }
-
-    void Update()
-    {
-        image.color = Color.HSVToRGB(hueValue, 1f, 1f);
-
-        if(!LineSpawner.isStatic)
+        public override void OnUpdate()
         {
-            hueValue += 0.05f / 10f;
+            base.OnUpdate();                                                //fucntion called rom AudioSyncer
 
-            if (hueValue >= 1f)
-                hueValue = 0f;
+            if (isBeat)
+                return;                                                     //if a beat has occurred return
+
+            transform.localScale = Vector3.Lerp(transform.localScale, restScale, restSmoothTime * Time.deltaTime);
+                //lineraly inerpolate the local scale of the game object from its scale to restScale at restSmoothTime speed
         }
-    }
-```
 
-The for loop
+        IEnumerator MoveToScale(Vector3 target)
+        {
+            Vector3 curr = transform.localScale;                            //current scale
+            Vector3 initial = curr;                                         //set initial to curr
+            float timer = 0;
+
+            while(curr != target)
+            {
+                curr = Vector3.Lerp(initial, target, timer / timeToBeat);   //linearly interpolate from intial scale to target scale (beatScale) at (timer / timeToBeat) speed
+                timer += Time.deltaTime;                                    //increment timer
+
+                transform.localScale = curr;                                //set scale to curr
+
+                yield return null;
+            }
+
+            isBeat = false;                                                 //beat is not occurring, lerp to restScale
+        }
+    ```
+
+    - Colour changer
+
+    ```
+        private void Start()
+        {
+            hueValue = 1f / LineSpawner.linesToSpawn * i;
+            image = GetComponent<Image>();
+        }
+
+        void Update()
+        {
+            image.color = Color.HSVToRGB(hueValue, 1f, 1f);
+
+            if(!LineSpawner.isStatic)
+            {
+                hueValue += 0.05f / 10f;
+
+                if (hueValue >= 1f)
+                    hueValue = 0f;
+            }
+        }
+    ```
+
+    - The for loop
 
 ```
     public static int linesToSpawn = 60;
