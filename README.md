@@ -36,10 +36,10 @@ Visual settings include:
 
 # How it works
 
-The terrain is infinitely generated using perlin noise and is constantly moving the offsetX to give the illusion of movement. The speed at which it moves can be altered using mouse scroll which also activates the warp drive
+- The terrain is infinitely generated using perlin noise and is constantly moving the offsetX to give the illusion of movement. The speed at which it moves can be altered using mouse scroll which also activates the warp drive
 
 ```
-public int depth = 20;
+    public int depth = 20;
     public int width = 256;
     public int height = 256;
     [Space]
@@ -88,12 +88,12 @@ public int depth = 20;
     }
 ```
 
-Bass-responding circle has a script that is listenning for bass beats and changes scale whenever a bass beat occurs. It also spawns lines along its radius that continusly change colour. Colour changing and line meshes can be turned on and off in the settings panel
+- Bass-responding circle has a script that is listenning for bass beats and changes scale whenever a bass beat occurs. It also spawns lines along its radius that continusly change colour. Colour changing and line meshes can be turned on and off in the settings panel
 
 Beat detection
 
 ```
-public Vector3 beatScale, restScale;
+    public Vector3 beatScale, restScale;
 
     public override void OnBeat()
     {
@@ -137,7 +137,7 @@ public Vector3 beatScale, restScale;
 Colour changer
 
 ```
-private void Start()
+    private void Start()
     {
         hueValue = 1f / LineSpawner.linesToSpawn * i;
         image = GetComponent<Image>();
@@ -160,7 +160,7 @@ private void Start()
 The for loop
 
 ```
-public static int linesToSpawn = 60;
+    public static int linesToSpawn = 60;
 
     public GameObject line;
     public Transform circleCentre, linesContainer;
@@ -191,10 +191,10 @@ public static int linesToSpawn = 60;
     }
 ```    
 
-Audio-responsive line generates lines in a for loop and each line takes in audio spectrum data, cuasing it to change its scale based on audio spectrum data. Lines constantly change colour. Colour changing and line meshes can be turned on and off in the settings panel
+- Audio-responsive line generates lines in a for loop and each line takes in audio spectrum data, cuasing it to change its scale based on audio spectrum data. Lines constantly change colour. Colour changing and line meshes can be turned on and off in the settings panel
 
 ```
-int i;
+    int i;
     float[] spectrum;
     GameObject[] arrayOfLines;
 
@@ -259,16 +259,12 @@ int i;
     }
 ```
 
-Audio manager has a script thta cycles through the array of songs. If a song is skipped or chosen radnomly, it stops the current song and plays the next one. Songs can be paused and and can resume playing at button press in settings panel
+- Audio manager has a script thta cycles through the array of songs. If a song is skipped or chosen radnomly, it stops the current song and plays the next one. Songs can be paused and and can resume playing at button press in settings panel
+
+- The planet in the background rotates around its y axis and has some ligthing (halo component and post processing) to make it cooler
 
 ```
-
-```
-
-The planet in the background rotates around its y axis and has some ligthing (halo component and post processing) to make it cooler
-
-```
-private void Start()
+    private void Start()
     {
         rotationSpeed -= 1f / 86400f * speed;
     }
