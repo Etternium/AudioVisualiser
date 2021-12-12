@@ -90,7 +90,7 @@ Visual settings include:
 
 - Bass-responding circle has a script that is listenning for bass beats and changes scale whenever a bass beat occurs. It also spawns lines along its radius that continusly change colour. Colour changing and line meshes can be turned on and off in the settings panel
 
-- - Beat detection
+-- Beat detection
 
 ```
     public Vector3 beatScale, restScale;
