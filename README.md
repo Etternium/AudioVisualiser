@@ -38,11 +38,170 @@ Visual settings include:
 
 The terrain is infinitely generated using perlin noise and is constantly moving the offsetX to give the illusion of movement. The speed at which it moves can be altered using mouse scroll which also activates the warp drive
 
+```
+public int depth = 20;
+    public int width = 256;
+    public int height = 256;
+    [Space]
+    public float scale = 20f;                                                   //how zoomed in the terrain is
+    public float offsetX = 100f;                                                //used to create random terrain each time the game is played
+    public float offsetY = 100f;                                                //used to create random terrain each time the game is played
+    [Space]
+    public float speed = 2f;
+
+    void Start()
+    {
+        offsetX = Random.Range(0f, 9999f);                                      //set random value
+        offsetY = Random.Range(0f, 9999f);                                      //set random value
+    }
+
+    void Update()
+    {
+        Terrain terrain = GetComponent<Terrain>();                              //fetch Terrain component
+        terrain.terrainData = GenerateTerrain(terrain.terrainData);             //set terrainData to a newly generated terrain based off current terrainData
+
+        offsetX += Time.deltaTime * speed;                                      //move the offset continously
+    }
+
+    TerrainData GenerateTerrain(TerrainData terrainData)
+    {
+        terrainData.heightmapResolution = width + 1;                            //set heightmapResolution
+
+        terrainData.size = new Vector3(width, depth, height);                   //set width, depth and height of the terrain
+
+        terrainData.SetHeights(0, 0, GenerateHeights());                        //set heights based off the two dimensional array
+        return terrainData;
+    }
+
+    float[,] GenerateHeights()
+    {
+        float[,] heights = new float[width, height];                            //populate two dimensional array with width and height
+        for(int x = 0; x < width; x++)
+        {
+            for(int y = 0; y < height; y++)
+            {
+                heights[x, y] = CalculateHeight(x, y);                          //generate perlin noise value for each element in the array
+            }
+        }
+
+        return heights;
+    }
+```
+
 Bass-responding circle has a script that is listenning for bass beats and changes scale whenever a bass beat occurs. It also spawns lines along its radius that continusly change colour. Colour changing and line meshes can be turned on and off in the settings panel
+
+Beat detection
+
+```
+public Vector3 beatScale, restScale;
+
+    public override void OnBeat()
+    {
+        base.OnBeat();                                                  //
+
+        StopCoroutine("MoveToScale");                                   //stop current MoveToScale coroutine
+        StartCoroutine("MoveToScale", beatScale);                       //start MoveToScale coroutine
+    }
+
+    public override void OnUpdate()
+    {
+        base.OnUpdate();                                                //fucntion called rom AudioSyncer
+
+        if (isBeat)
+            return;                                                     //if a beat has occurred return
+
+        transform.localScale = Vector3.Lerp(transform.localScale, restScale, restSmoothTime * Time.deltaTime);
+            //lineraly inerpolate the local scale of the game object from its scale to restScale at restSmoothTime speed
+    }
+
+    IEnumerator MoveToScale(Vector3 target)
+    {
+        Vector3 curr = transform.localScale;                            //current scale
+        Vector3 initial = curr;                                         //set initial to curr
+        float timer = 0;
+
+        while(curr != target)
+        {
+            curr = Vector3.Lerp(initial, target, timer / timeToBeat);   //linearly interpolate from intial scale to target scale (beatScale) at (timer / timeToBeat) speed
+            timer += Time.deltaTime;                                    //increment timer
+
+            transform.localScale = curr;                                //set scale to curr
+
+            yield return null;
+        }
+
+        isBeat = false;                                                 //beat is not occurring, lerp to restScale
+    }
+```
+
+Colour changer
+
+```
+private void Start()
+    {
+        hueValue = 1f / LineSpawner.linesToSpawn * i;
+        image = GetComponent<Image>();
+    }
+
+    void Update()
+    {
+        image.color = Color.HSVToRGB(hueValue, 1f, 1f);
+
+        if(!LineSpawner.isStatic)
+        {
+            hueValue += 0.05f / 10f;
+
+            if (hueValue >= 1f)
+                hueValue = 0f;
+        }
+    }
+```
+
+The for loop
+
+```
+public static int linesToSpawn = 60;
+
+    public GameObject line;
+    public Transform circleCentre, linesContainer;
+
+    public static bool isStatic = false;
+
+    void Start()
+    {
+        for (int i = 0; i < linesToSpawn; i++)
+        {
+            float theta = 360 / linesToSpawn;                                       //set angle theta
+            Quaternion rot = Quaternion.AngleAxis(theta * i, Vector3.forward);      //rotate theta around the z axis
+            Vector3 dir = rot * Vector3.up;                                         //orient the line to the camera
+            Vector3 pos = circleCentre.position + (dir * Screen.height / 4.5f);     //set position of the line along the circle radius
+
+            GameObject go = Instantiate(line, pos, rot);                            //create an instance of a line at pos position at rot rotation
+            ColourChanger colourChanger = go.AddComponent<ColourChanger>();         //add ColourChanger component to the line
+
+            go.transform.SetParent(linesContainer.transform, true);                 //child the line to the linesContainer game object
+            go.transform.localScale = new Vector3(0.01f, 0.04f);                    //set the local scale of the line
+            colourChanger.i = i;                                                    //this i = i in the ColourChanger
+        }
+    }
+
+    public void ColorSwitch()
+    {
+        isStatic = !isStatic;                                                       //control whether the line continously changes colour or not
+    }
+```    
 
 Audio-responsive line generates lines in a for loop and each line takes in audio spectrum data, cuasing it to change its scale based on audio spectrum data. Lines constantly change colour. Colour changing and line meshes can be turned on and off in the settings panel
 
+```
+
+```
+
 Audio manager has a script thta cycles through the array of songs. If a song is skipped or chosen radnomly, it stops the current song and plays the next one. Songs can be paused and and can resume playing at button press in settings panel
+
+```
+
+```
 
 The planet in the background rotates around its y axis and has some ligthing (halo component and post processing) to make it cooler
 
