@@ -28,11 +28,11 @@ Visual settings include:
 
 # Instructions for use
 
-Mouse to rotate the camera
+- Mouse to rotate the camera
 
-Scroll wheel to change speed and activate warp drive
+- Scroll wheel to change speed and activate warp drive
 
-All audio-related settings can be found in the settings menu on the right hand side
+- All audio-related settings can be found in the settings menu on the right hand side
 
 # How it works
 
@@ -93,7 +93,7 @@ The planet in the background rotates around its y axis and has some ligthing (ha
 
 # What I am most proud of in the assignment
 
-I am very proud of how the the audio responisve elements and warp drive add so much more jazz and immersion to the project. Changing colours are beautiful and it was quite tough to figure out how to implement the feature for the bass circle
+I am very proud of how the the audio responisve elements and warp drive add so much more jazz and immersion to the project. Changing colours are beautiful and I was very proud when I figured how to implement the feature on the bass circle as it was tough at first.
 
 # Proposal
 
