@@ -36,7 +36,15 @@ All audio-related settings can be found in the settings menu on the right hand s
 
 # How it works
 
+The terrain is infinitely generated using perlin noise and is constantly moving the offsetX to give the illusion of movement. The speed at which it moves can be altered using mouse scroll which also activates the warp drive
 
+Bass-responding circle has a script that is listenning for bass beats and changes scale whenever a bass beat occurs. It also spawns lines along its radius that continusly change colour. Colour changing and line meshes can be turned on and off in the settings panel
+
+Audio-responsive line generates lines in a for loop and each line takes in audio spectrum data, cuasing it to change its scale based on audio spectrum data. Lines constantly change colour. Colour changing and line meshes can be turned on and off in the settings panel
+
+Audio manager has a script thta cycles through the array of songs. If a song is skipped or chosen radnomly, it stops the current song and plays the next one. Songs can be paused and and can resume playing at button press in settings panel
+
+The planet in the background rotates around its y axis and has some ligthing (halo component and post processing) to make it cooler
 
 # List of classes/assets with sources
 
