@@ -46,6 +46,18 @@ Audio manager has a script thta cycles through the array of songs. If a song is 
 
 The planet in the background rotates around its y axis and has some ligthing (halo component and post processing) to make it cooler
 
+```
+private void Start()
+    {
+        rotationSpeed -= 1f / 86400f * speed;
+    }
+
+    void Update()
+    {
+        transform.Rotate(0f, rotationSpeed, 0);
+    }
+```
+
 # List of classes/assets with sources
 
 | Class | Source |
