@@ -26,6 +26,8 @@ Visual settings include:
 
 ![](Example%20Screenshot.png)
 
+Click [here](https://youtu.be/oPrqD5HaMGw) to see the project in action
+
 # Instructions for use
 
 - Mouse to rotate the camera
